@@ -41,23 +41,29 @@ export default function SelfCare({ onNavigateToMoodCheckIn }) {
   }, [activeCategory, energyFilter]);
 
   const moodMeta = currentReferenceMood
-    ? MOOD_OPTIONS.find((m) => m.id === currentReferenceMood.mood) || MOOD_OPTIONS[2]
+    ? MOOD_OPTIONS.find((m) => m.id === currentReferenceMood.mood) || MOOD_OPTIONS[0]
     : null;
 
   return (
-    <div style={{ maxWidth: '980px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '28px' }}>
+    <div style={{ maxWidth: '1060px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '26px' }}>
       {/* Title */}
       <div>
-        <h1 style={{
-          fontSize: '28px',
-          fontWeight: 800,
-          color: '#ffffff',
-          letterSpacing: '-0.5px',
-          margin: '0 0 6px 0'
-        }}>
-          Personalized Self-Care
+        <h1
+          style={{
+            fontSize: '26px',
+            fontWeight: 800,
+            color: '#ffffff',
+            letterSpacing: '-0.4px',
+            margin: '0 0 4px 0',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '10px'
+          }}
+        >
+          <span>Personalized Self-Care & Practices</span>
+          <span style={{ fontSize: '20px' }}>✨</span>
         </h1>
-        <p style={{ margin: 0, color: '#a1a1aa', fontSize: '15px' }}>
+        <p style={{ margin: 0, color: '#a395a8', fontSize: '14px' }}>
           Actionable, mood-attuned mindfulness practices curated to align with your exact energy level.
         </p>
       </div>
@@ -71,31 +77,31 @@ export default function SelfCare({ onNavigateToMoodCheckIn }) {
             display: 'flex',
             flexDirection: 'column',
             gap: '16px',
-            background: 'linear-gradient(135deg, rgba(30, 20, 38, 0.85) 0%, rgba(18, 14, 25, 0.85) 100%)',
-            border: '1px solid rgba(255, 46, 147, 0.35)',
-            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 46, 147, 0.15)'
+            background: 'linear-gradient(135deg, rgba(28, 16, 32, 0.85) 0%, rgba(18, 11, 23, 0.85) 100%)',
+            border: '1px solid rgba(255, 112, 186, 0.3)',
+            boxShadow: '0 12px 32px rgba(0, 0, 0, 0.45), 0 0 20px rgba(255, 46, 147, 0.12)'
           }}
         >
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <Sparkles size={20} color="#ff2e93" />
-              <span style={{ fontSize: '17px', fontWeight: 700, color: '#ffffff' }}>
+              <Sparkles size={18} color="#ff70ba" />
+              <span style={{ fontSize: '16px', fontWeight: 700, color: '#ffffff' }}>
                 Tailored for Your Current State
               </span>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '13px' }}>
-              <span className="pink-pill">
-                <Smile size={14} />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '12.5px' }}>
+              <span className="pill-badge pill-pink">
+                <Smile size={13} />
                 <span>{moodMeta.emoji} {moodMeta.label}</span>
               </span>
-              <span className="amber-pill">
-                <Zap size={14} />
+              <span className="pill-badge pill-amber">
+                <Zap size={13} fill="#fbbf24" />
                 <span>Vitality {currentReferenceMood.energy}/10</span>
               </span>
             </div>
           </div>
 
-          <p style={{ margin: 0, fontSize: '14px', color: '#e4e4e7', lineHeight: 1.6 }}>
+          <p style={{ margin: 0, fontSize: '13.5px', color: '#e4d8e5', lineHeight: 1.6 }}>
             {currentReferenceMood.energy <= 4 ? (
               <>Since your energy is on the lower side right now, we prioritize <strong>restorative, gentle practices</strong> to replenish your reserves without friction.</>
             ) : currentReferenceMood.energy <= 7 ? (
@@ -113,9 +119,9 @@ export default function SelfCare({ onNavigateToMoodCheckIn }) {
                 <div
                   key={act.id}
                   style={{
-                    background: isDone ? 'rgba(255, 46, 147, 0.1)' : 'rgba(255, 255, 255, 0.04)',
-                    border: isDone ? '1px solid #ff2e93' : '1px solid rgba(255, 255, 255, 0.08)',
-                    borderRadius: '12px',
+                    background: isDone ? 'rgba(255, 46, 147, 0.12)' : 'rgba(255, 255, 255, 0.03)',
+                    border: isDone ? '1px solid #ff2e93' : '1px solid rgba(255, 112, 186, 0.16)',
+                    borderRadius: '14px',
                     padding: '16px',
                     display: 'flex',
                     flexDirection: 'column',
@@ -127,14 +133,14 @@ export default function SelfCare({ onNavigateToMoodCheckIn }) {
                 >
                   <div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '6px' }}>
-                      <span style={{ fontSize: '11px', fontWeight: 700, color: '#ff70ba', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                      <span style={{ fontSize: '11px', fontWeight: 700, color: '#ff70ba', textTransform: 'uppercase', letterSpacing: '0.4px' }}>
                         {act.category} • {act.duration}
                       </span>
                     </div>
-                    <h4 style={{ margin: '0 0 6px 0', fontSize: '15px', fontWeight: 700, color: '#ffffff' }}>
+                    <h4 style={{ margin: '0 0 6px 0', fontSize: '14.5px', fontWeight: 700, color: '#ffffff' }}>
                       {act.title}
                     </h4>
-                    <p style={{ margin: 0, fontSize: '13px', color: '#d4d4d8', lineHeight: 1.5 }}>
+                    <p style={{ margin: 0, fontSize: '12.5px', color: '#a395a8', lineHeight: 1.45 }}>
                       {act.description}
                     </p>
                   </div>
@@ -142,13 +148,13 @@ export default function SelfCare({ onNavigateToMoodCheckIn }) {
                   <button
                     onClick={() => toggleSelfCare(act.id)}
                     style={{
-                      background: isDone ? 'linear-gradient(135deg, #ff2e93, #d91b75)' : 'rgba(255, 255, 255, 0.06)',
-                      border: isDone ? 'none' : '1px solid rgba(255, 255, 255, 0.12)',
+                      background: isDone ? 'linear-gradient(135deg, #ff2e93, #db2777)' : 'rgba(255, 255, 255, 0.05)',
+                      border: isDone ? 'none' : '1px solid rgba(255, 112, 186, 0.2)',
                       color: '#ffffff',
-                      borderRadius: '8px',
+                      borderRadius: '10px',
                       padding: '8px 14px',
                       fontSize: '12px',
-                      fontWeight: 700,
+                      fontWeight: 600,
                       cursor: 'pointer',
                       display: 'flex',
                       alignItems: 'center',
@@ -165,7 +171,7 @@ export default function SelfCare({ onNavigateToMoodCheckIn }) {
                       </>
                     ) : (
                       <>
-                        <Circle size={14} />
+                        <Circle size={14} color="#fda4af" />
                         <span>Mark as Done</span>
                       </>
                     )}
@@ -189,7 +195,7 @@ export default function SelfCare({ onNavigateToMoodCheckIn }) {
         >
           <div>
             <div style={{ fontWeight: 700, color: '#ffffff', fontSize: '15px' }}>Check in today for tailored recommendations!</div>
-            <div style={{ fontSize: '13px', color: '#a1a1aa' }}>Logging your mood unlocks customized suggestions based on your exact energy rating.</div>
+            <div style={{ fontSize: '13px', color: '#a395a8' }}>Logging your mood unlocks customized suggestions based on your exact energy rating.</div>
           </div>
           <button
             onClick={onNavigateToMoodCheckIn}
@@ -213,21 +219,23 @@ export default function SelfCare({ onNavigateToMoodCheckIn }) {
           gap: '10px'
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14px', color: '#ffffff' }}>
-          <div style={{
-            background: 'rgba(255, 46, 147, 0.15)',
-            padding: '6px',
-            borderRadius: '50%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
-          }}>
-            <Heart size={16} color="#ff2e93" fill="#ff2e93" />
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '13.5px', color: '#ffffff' }}>
+          <div
+            style={{
+              background: 'rgba(255, 46, 147, 0.16)',
+              padding: '6px',
+              borderRadius: '50%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
+            <Heart size={15} color="#ff70ba" fill="#ff70ba" />
           </div>
           <span><strong>Today's Wellness Practices:</strong> {completedSelfCare.length} activity completed</span>
         </div>
         {completedSelfCare.length > 0 && (
-          <span style={{ fontSize: '13px', color: '#4ade80', fontWeight: 700 }}>
+          <span style={{ fontSize: '12.5px', color: '#6ee7b7', fontWeight: 600 }}>
             ✨ Wonderful work prioritizing your wellbeing!
           </span>
         )}
@@ -236,30 +244,32 @@ export default function SelfCare({ onNavigateToMoodCheckIn }) {
       {/* Browse Library Filters */}
       <div>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px', marginBottom: '18px' }}>
-          <h2 style={{ fontSize: '19px', fontWeight: 700, color: '#ffffff', margin: 0 }}>
+          <h2 style={{ fontSize: '18px', fontWeight: 700, color: '#ffffff', margin: 0 }}>
             Self-Care Practice Library
           </h2>
 
-          <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
             {/* Category tabs */}
-            <div style={{
-              display: 'flex',
-              background: 'rgba(255, 255, 255, 0.04)',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
-              padding: '3px',
-              borderRadius: '10px'
-            }}>
+            <div
+              style={{
+                display: 'flex',
+                background: 'rgba(255, 255, 255, 0.04)',
+                border: '1px solid rgba(255, 112, 186, 0.15)',
+                padding: '3px',
+                borderRadius: '10px'
+              }}
+            >
               {['all', 'Mind', 'Body', 'Soul', 'Connection'].map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
                   style={{
                     border: 'none',
-                    background: activeCategory === cat ? 'linear-gradient(135deg, #ff2e93, #d91b75)' : 'transparent',
-                    color: activeCategory === cat ? '#ffffff' : '#a1a1aa',
+                    background: activeCategory === cat ? 'linear-gradient(135deg, #ff2e93, #db2777)' : 'transparent',
+                    color: activeCategory === cat ? '#ffffff' : '#a395a8',
                     fontWeight: activeCategory === cat ? 700 : 500,
                     padding: '6px 12px',
-                    borderRadius: '8px',
+                    borderRadius: '7px',
                     fontSize: '12px',
                     cursor: 'pointer',
                     boxShadow: activeCategory === cat ? '0 0 10px rgba(255, 46, 147, 0.3)' : 'none',
@@ -275,26 +285,24 @@ export default function SelfCare({ onNavigateToMoodCheckIn }) {
             <select
               value={energyFilter}
               onChange={(e) => setEnergyFilter(e.target.value)}
-              style={{
-                padding: '7px 12px',
-                fontSize: '12px',
-                color: '#ffffff'
-              }}
+              style={{ padding: '6px 12px', fontSize: '12px', color: '#ffffff' }}
             >
-              <option value="all" style={{ background: '#171220' }}>Any Energy</option>
-              <option value="low" style={{ background: '#171220' }}>Low Energy (1-4)</option>
-              <option value="moderate" style={{ background: '#171220' }}>Moderate Energy (4-7)</option>
-              <option value="high" style={{ background: '#171220' }}>High Energy (7-10)</option>
+              <option value="all" style={{ background: '#17101f' }}>Any Energy</option>
+              <option value="low" style={{ background: '#17101f' }}>Low Energy (1-4)</option>
+              <option value="moderate" style={{ background: '#17101f' }}>Moderate Energy (4-7)</option>
+              <option value="high" style={{ background: '#17101f' }}>High Energy (7-10)</option>
             </select>
           </div>
         </div>
 
         {/* Activity Cards Grid */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))',
-          gap: '18px'
-        }}>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))',
+            gap: '18px'
+          }}
+        >
           {displayActivities.map((activity) => {
             const isCompleted = completedSelfCare.includes(activity.id);
 
@@ -308,32 +316,32 @@ export default function SelfCare({ onNavigateToMoodCheckIn }) {
                   flexDirection: 'column',
                   justifyContent: 'space-between',
                   gap: '14px',
-                  border: isCompleted ? '1px solid #ff2e93' : '1px solid rgba(255, 255, 255, 0.08)',
-                  background: isCompleted ? 'rgba(255, 46, 147, 0.08)' : 'rgba(22, 17, 28, 0.72)',
-                  boxShadow: isCompleted ? '0 0 16px rgba(255, 46, 147, 0.25)' : '0 8px 32px rgba(0, 0, 0, 0.3)'
+                  border: isCompleted ? '1px solid #ff2e93' : '1px solid rgba(255, 112, 186, 0.16)',
+                  background: isCompleted ? 'rgba(255, 46, 147, 0.08)' : 'rgba(23, 14, 28, 0.68)',
+                  boxShadow: isCompleted ? '0 0 16px rgba(255, 46, 147, 0.25)' : '0 8px 32px rgba(0, 0, 0, 0.35)'
                 }}
               >
                 <div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                    <span className="pink-pill" style={{ fontSize: '11px', padding: '2px 8px' }}>
+                    <span className="pill-badge pill-pink" style={{ fontSize: '11px', padding: '2px 8px' }}>
                       {activity.category}
                     </span>
 
-                    <span style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '12px', color: '#a1a1aa' }}>
-                      <Clock size={12} color="#fbbf24" />
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '11.5px', color: '#a395a8' }}>
+                      <Clock size={12} color="#fda4af" />
                       <span>{activity.duration}</span>
                     </span>
                   </div>
 
-                  <h3 style={{ margin: '0 0 6px 0', fontSize: '16px', fontWeight: 700, color: '#ffffff' }}>
+                  <h3 style={{ margin: '0 0 6px 0', fontSize: '15px', fontWeight: 700, color: '#ffffff' }}>
                     {activity.title}
                   </h3>
 
-                  <p style={{ margin: '0 0 10px 0', fontSize: '13px', color: '#d4d4d8', lineHeight: 1.5 }}>
+                  <p style={{ margin: '0 0 10px 0', fontSize: '12.5px', color: '#a395a8', lineHeight: 1.5 }}>
                     {activity.description}
                   </p>
 
-                  <div style={{ display: 'flex', gap: '6px', fontSize: '11px', color: '#fbbf24', fontWeight: 600 }}>
+                  <div style={{ display: 'flex', gap: '6px', fontSize: '11px', color: '#fda4af', fontWeight: 600 }}>
                     <span>⚡ Energy req: {activity.minEnergy}-{activity.maxEnergy}/10</span>
                   </div>
                 </div>
@@ -341,30 +349,30 @@ export default function SelfCare({ onNavigateToMoodCheckIn }) {
                 <button
                   onClick={() => toggleSelfCare(activity.id)}
                   style={{
-                    background: isCompleted ? 'linear-gradient(135deg, #ff2e93, #d91b75)' : 'rgba(255, 255, 255, 0.06)',
-                    border: isCompleted ? 'none' : '1px solid rgba(255, 255, 255, 0.12)',
+                    background: isCompleted ? 'linear-gradient(135deg, #ff2e93, #db2777)' : 'rgba(255, 255, 255, 0.05)',
+                    border: isCompleted ? 'none' : '1px solid rgba(255, 112, 186, 0.2)',
                     color: '#ffffff',
-                    borderRadius: '8px',
+                    borderRadius: '10px',
                     padding: '8px 14px',
-                    fontSize: '13px',
-                    fontWeight: 700,
+                    fontSize: '12px',
+                    fontWeight: 600,
                     cursor: 'pointer',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     gap: '6px',
-                    boxShadow: isCompleted ? '0 0 14px rgba(255, 46, 147, 0.45)' : 'none',
+                    boxShadow: isDoneHighlight(isCompleted),
                     transition: 'all 0.15s ease'
                   }}
                 >
                   {isCompleted ? (
                     <>
-                      <CheckCircle2 size={15} color="#ffffff" />
+                      <CheckCircle2 size={14} color="#ffffff" />
                       <span>Completed Today</span>
                     </>
                   ) : (
                     <>
-                      <Circle size={15} />
+                      <Circle size={14} color="#fda4af" />
                       <span>Mark as Done</span>
                     </>
                   )}
@@ -376,4 +384,8 @@ export default function SelfCare({ onNavigateToMoodCheckIn }) {
       </div>
     </div>
   );
+}
+
+function isDoneHighlight(done) {
+  return done ? '0 0 14px rgba(255, 46, 147, 0.45)' : 'none';
 }

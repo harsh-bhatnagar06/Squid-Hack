@@ -1,11 +1,17 @@
 // Sample data and wellness constants for Wellness Pulse
 
 export const MOOD_OPTIONS = [
-  { id: 'great', label: 'Great', emoji: '😄', score: 5, color: '#ff2e93', description: 'Feeling joyful, radiant, and empowered' },
-  { id: 'good', label: 'Good', emoji: '🙂', score: 4, color: '#ff69b4', description: 'Peaceful, content, and grounded' },
-  { id: 'okay', label: 'Neutral', emoji: '😐', score: 3, color: '#fbbf24', description: 'Steady, neutral, and balanced' },
-  { id: 'low', label: 'Low', emoji: '😔', score: 2, color: '#f97316', description: 'Sluggish, tired, or needing rest' },
-  { id: 'stressed', label: 'Stressed', emoji: '😣', score: 1, color: '#f43f5e', description: 'Overwhelmed, tense, or scattered' }
+  { id: 'great', label: 'Great', emoji: '😆', score: 5, color: '#ff2e93', description: 'Feeling joyful, radiant, and empowered' },
+  { id: 'happy', label: 'Happy', emoji: '😊', score: 4.5, color: '#ff69b4', description: 'Upbeat, joyful, and smiling' },
+  { id: 'calm', label: 'Calm', emoji: '😌', score: 4, color: '#c084fc', description: 'Peaceful, content, and grounded' },
+  { id: 'okay', label: 'Okay', emoji: '😐', score: 3, color: '#fbbf24', description: 'Steady, neutral, and balanced' },
+  { id: 'sad', label: 'Sad', emoji: '😢', score: 2, color: '#818cf8', description: 'Feeling down, melancholy, or tender' },
+  { id: 'anxious', label: 'Anxious', emoji: '😰', score: 2, color: '#fb7185', description: 'Nervous, fluttery, or uneasy' },
+  { id: 'stressed', label: 'Stressed', emoji: '🤯', score: 1.5, color: '#f43f5e', description: 'Overwhelmed, tense, or scattered' },
+  { id: 'angry', label: 'Angry', emoji: '😡', score: 1, color: '#e11d48', description: 'Frustrated, irritable, or agitated' },
+  // Backward compatibility aliases
+  { id: 'good', label: 'Happy', emoji: '😊', score: 4, color: '#ff69b4', description: 'Peaceful, content, and grounded' },
+  { id: 'low', label: 'Sad', emoji: '😢', score: 2, color: '#818cf8', description: 'Sluggish, tired, or needing rest' }
 ];
 
 export const REFLECTIVE_PROMPTS = [
